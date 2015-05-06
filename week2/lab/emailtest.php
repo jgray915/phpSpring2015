@@ -70,7 +70,7 @@ include './bootstrap.php';
                     
                 }
           }
-          else if ( $util->isPostRequest() && isset($_POST['delete']))
+          if ( $util->isPostRequest() && $_POST['action'] == 'delete')
           {
               if($emailTypeDAO->delete($emailId)){
                   echo 'Email Deleted';
@@ -78,21 +78,26 @@ include './bootstrap.php';
                   echo 'Email not deleted';
               }
           }
-        
+          else if ( $util->isPostRequest() && $_POST['action'] == 'edit')
+          {
+              if($emailTypeDAO->delete($emailId)){
+                  echo 'Email Deleted';
+              } else {
+                  echo 'Email not deleted';
+              }
+          }
         ?>
         
         
          <h3>Add Email</h3>
-        <form action="#" method="post">
-            <label>Email ID:</label>            
-            <input type="text" name="emailid" value="" placeholder="" />
+        <form action="#" method="post">       
             <br /><br />
             <label>Email:</label>            
             <input type="text" name="email" value="<?php echo $email; ?>" placeholder="" />
             <br /><br />
             <label>Active:</label>
             <input type="number" max="1" min="0" name="active" value="<?php echo $active; ?>" />
-            
+            <input type="hidden" name="emailid" value="<?php echo $emailId; ?>" />
             <br /><br />
             <label>Email Type:</label>
             <select name="emailtypeid">
@@ -109,7 +114,6 @@ include './bootstrap.php';
             
              <br /><br />
             <button type='submit' name='submit'>Submit</button>
-            <button type='submit' name='delete'>Delete</button>
         </form>
          
             <table border="1" cellpadding="5">
@@ -125,8 +129,10 @@ include './bootstrap.php';
          <?php 
             $emails = $emailDAO->getAllRows(); 
             foreach ($emails as $value) {
-                echo '<tr><td>',$value->getEmail(),'</td><td>',$value->getEmailTypeId(),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLastupdated())),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLogged())),'</td>';
-                echo  '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td> <td><button>Update</button></td> <td><button>Delete</button></td> </tr>' ;
+                echo '<tr>',"\r\n",'<td>',$value->getEmail(),'</td>',"\r\n",'<td>',$value->getEmailTypeId(),'</td>',"\r\n",'<td>',date("F j, Y g:i(s) a", strtotime($value->getLastupdated())),'</td>',"\r\n",'<td>',date("F j, Y g:i(s) a", strtotime($value->getLogged())),"</td>\r\n";
+                echo  '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td>';
+                echo '<td><form action="#" method="post"><input type="hidden"  name="emailid" value="',$value->getEmailid(),'" /><input type="hidden" name="action" value="edit" /><input type="submit" value="EDIT" /> </form></td>',"\r\n";
+                echo '<td><form action="#" method="post"><input type="hidden"  name="emailid" value="',$value->getEmailid(),'" /><input type="hidden" name="action" value="delete" /><input type="submit" value="DELETE" /> </form></td></tr>',"\r\n";
             }
 
          ?>

@@ -195,7 +195,7 @@ use Exception;
         
 
         $_emailTypeService = new EmailTypeService($_emailTypeDAO, $_validator, $_emailTypemodel );
-        $_emailService = new EmailService($_emailDAO, $_validator, $_emailmodel );
+        $_emailService = new EmailService($_emailDAO, $_emailTypeService, $_validator, $_emailmodel );
         
         //http://php.net/manual/en/functions.anonymous.php
 

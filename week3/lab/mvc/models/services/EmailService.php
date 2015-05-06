@@ -21,9 +21,18 @@ use App\models\interfaces\IModel;
 class EmailService implements IService {
     
      protected $DAO;
+     protected $emailTypeService;
      protected $validator;
      protected $model;
              
+     function getEmailTypeService() {
+        return $this->emailTypeService;
+    }
+
+    function setEmailTypeService(IService $service) {
+        $this->emailTypeService = $service;
+    }
+     
      function getValidator() {
          return $this->validator;
      }
@@ -49,12 +58,17 @@ class EmailService implements IService {
          $this->DAO = $DAO;
      }
 
-    public function __construct( IDAO $EmailDAO, IService $validator,IModel $model  ) {
-        $this->setDAO($EmailDAO);
+    public function __construct( IDAO $emailDAO, IService $emailTypeService, IService $validator, IModel $model  ) {
+        $this->setDAO($emailDAO);
+        $this->setEmailTypeService($emailTypeService);
         $this->setValidator($validator);
         $this->setModel($model);
     }
     
+    public function getAllEmailTypes() {       
+        return $this->getEmailTypeService()->getAllRows();   
+        
+    }
     
     public function getAllRows($limit = "", $offset = "") {
         return $this->getDAO()->getAllRows($limit, $offset);
@@ -90,6 +104,11 @@ class EmailService implements IService {
     
     public function validate( IModel $model ) {
         $errors = array();
+        
+        if ( !$this->getEmailTypeService()->idExist($model->getEmailtypeid()) ) {
+            $errors[] = 'Email Type is invalid';
+        }
+        
         if ( !$this->getValidator()->emailIsValid($model->getEmail()) ) {
             $errors[] = 'Email is invalid';
         }
@@ -97,7 +116,6 @@ class EmailService implements IService {
         if ( !$this->getValidator()->activeIsValid($model->getActive()) ) {
             $errors[] = 'Email active is invalid';
         }
-       
         
         return $errors;
     }

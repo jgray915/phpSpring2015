@@ -28,6 +28,7 @@ class EmailController extends BaseController implements IController  {
         if ( $scope->util->isPostRequest() ) {
             
             if ( $scope->util->getAction() == 'create' ) {
+                
                 $this->data['model']->map($scope->util->getPostValues());
                 $this->data["errors"] = $this->service->validate($this->data['model']);
                 $this->data["saved"] = $this->service->create($this->data['model']);
@@ -55,7 +56,7 @@ class EmailController extends BaseController implements IController  {
         
        
         $this->data['Emails'] = $this->service->getAllRows();        
-        
+        $this->data['emailTypes'] = $this->service->getAllEmailTypes();
         
         $scope->view = $this->data;
         return $this->view($viewPage,$scope);

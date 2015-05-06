@@ -77,9 +77,7 @@ include './bootstrap.php';
         
         
          <h3>Add Email Type</h3>
-        <form action="#" method="post">
-            <label>Email Type ID:</label>            
-            <input type="text" name="emailtypeid" value="<?php echo $emailTypeId; ?>" placeholder="" />
+        <form action="#" method="post">         
             <br /><br />
             <label>Email Type:</label>            
             <input type="text" name="emailtype" value="<?php echo $emailType; ?>" placeholder="" />
@@ -90,7 +88,6 @@ include './bootstrap.php';
             <br /><br />
 
             <button type='submit' name='submit'>Submit</button>
-            <button type='submit' name='delete'>Delete</button>
         </form>
          
             <table border="1" cellpadding="5">
@@ -105,7 +102,9 @@ include './bootstrap.php';
             $emailTypes = $emailTypeDAO->getAllRows(); 
             foreach ($emailTypes as $value) {
                 echo '<tr><td>',$value->getEmailType(),'</td><td>',$value->getEmailTypeId(),'</td>';
-                echo  '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td> <td><button>Update</button></td> <td><button>Delete</button></td> </tr>' ;
+                echo '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td>';
+                echo '<td><form action="#" method="post"><input type="hidden"  name="emailid" value="',$value->getEmailTypeid(),'" /><input type="hidden" name="action" value="edit" /><input type="submit" value="EDIT" /> </form></td>';
+                echo '<td><form action="#" method="post"><input type="hidden"  name="emailid" value="',$value->getEmailTypeid(),'" /><input type="hidden" name="action" value="delete" /><input type="submit" value="DELETE" /> </form></td>';
             }
 
          ?>
