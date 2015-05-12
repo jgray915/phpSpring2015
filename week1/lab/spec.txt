@@ -1,0 +1,16 @@
+# phpSpring2015
+
+We will create an email type add form.
+
+**  The form will have take an email type and add it to the emailtype table
+**  Validate the form and save it into the database.
+**  If there are errors please re-display the form with the error messages.
+**  Create a emailTypeDB class that will have a function to save the email type 
+    and one to display them.
+**  Include this in the form.
+** When displaying the list of active types, wrap them in a strong tag.
+
+Some email types that will be added.
+
+- Primary
+- Secondary

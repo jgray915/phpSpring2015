@@ -1,0 +1,4 @@
+--  All PHP code must use object-oriented principles.
+--  The program has to be able to create, read, update and disable/delete data (crud).
+--  There has to be a signup and log in piece to your project. 
+--  All code must be documented using the PHP doc style comments.
