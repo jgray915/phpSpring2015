@@ -64,8 +64,8 @@ class EmailDAO implements IDAO{
                           ":emailtypeid" => $model->getEmailTypeId(),
                     );
          
+                
          if ( $this->idExisit($model->getEmailId()) ) {
-             
              $values[":emailid"] = $model->getEmailId();
              $stmt = $db->prepare("UPDATE email SET email = :email, emailtypeid = :emailtypeid,  active = :active, lastupdated = now() WHERE emailid = :emailid");
          } else {             

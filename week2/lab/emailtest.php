@@ -72,19 +72,19 @@ include './bootstrap.php';
           }
           if ( $util->isPostRequest() && $_POST['action'] == 'delete')
           {
-              if($emailDAO->delete($emailId)){
+              if($emailTypeDAO->delete($emailId)){
                   echo 'Email Deleted';
               } else {
                   echo 'Email not deleted';
               }
           }
-          
-          if ( $util->isPostRequest() && $_POST['action'] == 'update')
+          else if ( $util->isPostRequest() && $_POST['action'] == 'edit')
           {
-              $editemail = $emailDAO->getById($emailId);
-              $email = $editemail->getEmail();
-              $active = $editemail->getActive();
-              $EmailTypeid = $editemail->getEmailTypeId();
+              if($emailTypeDAO->delete($emailId)){
+                  echo 'Email Deleted';
+              } else {
+                  echo 'Email not deleted';
+              }
           }
         ?>
         
@@ -131,7 +131,7 @@ include './bootstrap.php';
             foreach ($emails as $value) {
                 echo '<tr>',"\r\n",'<td>',$value->getEmail(),'</td>',"\r\n",'<td>',$value->getEmailTypeId(),'</td>',"\r\n",'<td>',date("F j, Y g:i(s) a", strtotime($value->getLastupdated())),'</td>',"\r\n",'<td>',date("F j, Y g:i(s) a", strtotime($value->getLogged())),"</td>\r\n";
                 echo  '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td>';
-                echo '<td><form action="#" method="post"><input type="hidden"  name="emailid" value="',$value->getEmailid(),'" /><input type="hidden" name="action" value="update" /><input type="submit" value="EDIT" /> </form></td>';
+                echo '<td><form action="#" method="post"><input type="hidden"  name="emailid" value="',$value->getEmailid(),'" /><input type="hidden" name="action" value="edit" /><input type="submit" value="EDIT" /> </form></td>',"\r\n";
                 echo '<td><form action="#" method="post"><input type="hidden"  name="emailid" value="',$value->getEmailid(),'" /><input type="hidden" name="action" value="delete" /><input type="submit" value="DELETE" /> </form></td></tr>',"\r\n";
             }
 
