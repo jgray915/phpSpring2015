@@ -6,7 +6,7 @@
  * @author User
  */
 
-namespace API\models\services;
+namespace App\models\services;
 
 
 class EmailTypeModel extends BaseModel {

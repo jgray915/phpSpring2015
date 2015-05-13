@@ -1,16 +1,22 @@
 <?php
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
  * Description of EmailTypeService
  *
  * @author User
  */
 
-namespace API\models\services;
+namespace App\models\services;
 
-use API\models\interfaces\IDAO;
-use API\models\interfaces\IService;
-use API\models\interfaces\IModel;
+use App\models\interfaces\IDAO;
+use App\models\interfaces\IService;
+use App\models\interfaces\IModel;
 
 class EmailTypeService implements IService {
     

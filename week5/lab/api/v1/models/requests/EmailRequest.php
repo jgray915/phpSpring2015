@@ -25,6 +25,7 @@ class EmailRequest implements IRequest {
     public function POST( IModel $model ) { 
         $emailModel = $this->service->getNewEmailModel();
         $emailModel->map($model->getRequestData());
+        
         if ( $this->service->create($emailModel) ) {
             throw new ContentCreatedException('Created');           
         }

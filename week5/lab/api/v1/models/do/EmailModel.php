@@ -6,13 +6,18 @@
  * @author User
  */
 
-namespace API\models\services;
+namespace App\models\services;
 
 
 class EmailModel extends BaseModel {
     
     private $emailid;
     private $email;
+    private $emailtypeid;
+    private $emailtype;
+    private $emailtypeactive;
+    private $logged;
+    private $lastupdated;
     private $active;
     
     function getEmailid() {
@@ -39,5 +44,46 @@ class EmailModel extends BaseModel {
         $this->active = $active;
     }
 
+    function setEmailTypeId($x) {
+        $this->emailtypeid = $x;
+    }
 
+    function getEmailTypeId() {
+        return $this->emailtypeid;
+    }
+    
+    
+    
+    
+    function setEmailType($x) {
+        $this->emailtype = $x;
+    }
+
+    function getEmailType() {
+        return $this->emailtype;
+    }
+    
+    function setEmailTypeActive($x) {
+        $this->emailtypeactive = $x;
+    }
+
+    function getEmailTypeActive() {
+        return $this->emailtypeactive;
+    }
+    
+    function setLogged($x) {
+        $this->logged = $x;
+    }
+
+    function getLogged() {
+        return $this->logged;
+    }
+    
+    function setLastUpdated($x) {
+        $this->lastupdated = $x;
+    }
+
+    function getLastUpdated() {
+        return $this->lastupdated;
+    }
 }

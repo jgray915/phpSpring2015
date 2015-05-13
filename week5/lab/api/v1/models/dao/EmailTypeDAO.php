@@ -5,11 +5,11 @@
  * @author User
  */
 
-namespace API\models\services;
+namespace App\models\services;
 
-use API\models\interfaces\IDAO;
-use API\models\interfaces\IModel;
-use API\models\interfaces\ILogging;
+use App\models\interfaces\IDAO;
+use App\models\interfaces\IModel;
+use App\models\interfaces\ILogging;
 use \PDO;
 
 class EmailTypeDAO extends BaseDAO implements IDAO {
