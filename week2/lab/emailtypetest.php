@@ -95,7 +95,6 @@ include './bootstrap.php';
                     <th>Email Type</th>
                     <th>Email Type ID</th>
                     <th>Active</th>
-                    <th>Update</th>
                     <th>Delete</th>
                 </tr>
          <?php 
@@ -103,7 +102,6 @@ include './bootstrap.php';
             foreach ($emailTypes as $value) {
                 echo '<tr><td>',$value->getEmailType(),'</td><td>',$value->getEmailTypeId(),'</td>';
                 echo '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td>';
-                echo '<td><form action="#" method="post"><input type="hidden"  name="emailid" value="',$value->getEmailTypeid(),'" /><input type="hidden" name="action" value="edit" /><input type="submit" value="EDIT" /> </form></td>';
                 echo '<td><form action="#" method="post"><input type="hidden"  name="emailid" value="',$value->getEmailTypeid(),'" /><input type="hidden" name="action" value="delete" /><input type="submit" value="DELETE" /> </form></td>';
             }
 
