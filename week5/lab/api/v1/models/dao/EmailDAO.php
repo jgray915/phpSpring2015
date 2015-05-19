@@ -2,28 +2,30 @@
 /**
  * Description of EmailDAO
  *
- * @author User
+ * @author GFORTI
  */
 
-namespace App\models\services;
+namespace API\models\services;
 
-use App\models\interfaces\IDAO;
-use App\models\interfaces\IModel;
-use App\models\interfaces\ILogging;
+use API\models\interfaces\IDAO;
+use API\models\interfaces\IModel;
+use API\models\interfaces\ILogging;
 use \PDO;
 
+
 class EmailDAO extends BaseDAO implements IDAO {
-    
-    public function __construct( PDO $db, IModel $model, ILogging $log ) {        
+        
+     public function __construct( PDO $db, IModel $model, ILogging $log ) {        
         $this->setDB($db);
         $this->setModel($model);
         $this->setLog($log);
     }
-          
+    
+    
     public function idExisit($id) {
-        
+                
         $db = $this->getDB();
-        $stmt = $db->prepare("SELECT * FROM email WHERE emailid = :emailid");
+        $stmt = $db->prepare("SELECT emailid FROM email WHERE emailid = :emailid");
          
         if ( $stmt->execute(array(':emailid' => $id)) && $stmt->rowCount() > 0 ) {
             return true;
@@ -37,15 +39,17 @@ class EmailDAO extends BaseDAO implements IDAO {
          
          $db = $this->getDB();
          
-         $stmt = $db->prepare("SELECT email.emailid, email.email, email.emailtypeid, emailtype.emailtype, emailtype.active as emailtypeactive, email.logged, email.lastupdated, email.active"
-                 . " FROM email LEFT JOIN emailtype on email.emailtypeid = emailtype.emailtypeid WHERE emailid = :emailid");
+         $stmt = $db->prepare("SELECT email.emailid, email.email, email.emailTypeid, emailType.emailType, emailType.active as emailTypeactive, email.logged, email.lastupdated, email.active"
+                 . " FROM email LEFT JOIN emailType on email.emailTypeid = emailType.emailTypeid WHERE emailid = :emailid");
          
-         if ( $stmt->execute(array(':emailid' => $id)) && $stmt->rowCount() > 0 ) {
+        if ( $stmt->execute(array(':emailid' => $id)) && $stmt->rowCount() > 0 ) {
              $results = $stmt->fetch(PDO::FETCH_ASSOC);
-             $model->reset()->map($results);
-         }
+             $model->map($results);
+        }
          
-         return $model;
+        return $model;
+         
+        
     }
     
     
@@ -54,13 +58,13 @@ class EmailDAO extends BaseDAO implements IDAO {
          $db = $this->getDB();
          
          $binds = array( ":email" => $model->getEmail(),
-                        ":emailtypeid" => $model->getEmailTypeId(),
-                          ":active" => $model->getActive()
+                         ":active" => $model->getActive(),
+                         ":emailTypeid" => $model->getEmailTypeid()             
                     );
                          
          if ( !$this->idExisit($model->getEmailid()) ) {
              
-             $stmt = $db->prepare("INSERT INTO email SET email = :email, emailtypeid = :emailtypeid, active = :active, logged = now(), lastupdated = now()");
+             $stmt = $db->prepare("INSERT INTO email SET email = :email, emailTypeid = :emailTypeid, active = :active, logged = now(), lastupdated = now()");
              
              if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {
                 return true;
@@ -76,15 +80,16 @@ class EmailDAO extends BaseDAO implements IDAO {
                  
          $db = $this->getDB();
          
-         $binds = array( ":email" => $model->getEmail(),
-                          ":active" => $model->getActive(),
-                          ":emailid" => $model->getEmailid()
+        $binds = array( ":email" => $model->getEmail(),
+                        ":active" => $model->getActive(),
+                        ":emailTypeid" => $model->getEmailTypeid(),
+                        ":emailid" => $model->getEmailid()
                     );
          
                 
          if ( $this->idExisit($model->getEmailid()) ) {
             
-             $stmt = $db->prepare("UPDATE email SET email = :email, active = :active WHERE emailid = :emailid");
+             $stmt = $db->prepare("UPDATE email SET email = :email, emailTypeid = :emailTypeid,  active = :active, lastupdated = now() WHERE emailid = :emailid");
          
              if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {
                 return true;
@@ -117,8 +122,8 @@ class EmailDAO extends BaseDAO implements IDAO {
        $db = $this->getDB();
        $values = array();
        
-        $stmt = $db->prepare("SELECT email.emailid, email.email, email.emailtypeid, emailtype.emailtype, emailtype.active as emailtypeactive, email.logged, email.lastupdated, email.active"
-                 . " FROM email LEFT JOIN emailtype on email.emailtypeid = emailtype.emailtypeid");
+        $stmt = $db->prepare("SELECT email.emailid, email.email, email.emailTypeid, emailType.emailType, emailType.active as emailTypeactive, email.logged, email.lastupdated, email.active"
+                 . " FROM email LEFT JOIN emailType on email.emailTypeid = emailType.emailTypeid");
         
         if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -133,7 +138,6 @@ class EmailDAO extends BaseDAO implements IDAO {
         $stmt->closeCursor();
          return $values;
     }
-     
     
-     
+    
 }

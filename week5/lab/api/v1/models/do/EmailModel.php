@@ -3,19 +3,19 @@
 /**
  * Description of EmailModel
  *
- * @author User
+ * @author GFORTI
  */
 
-namespace App\models\services;
+namespace API\models\services;
 
 
 class EmailModel extends BaseModel {
     
     private $emailid;
     private $email;
-    private $emailtypeid;
-    private $emailtype;
-    private $emailtypeactive;
+    private $emailTypeid;
+    private $emailType;
+    private $emailTypeactive;
     private $logged;
     private $lastupdated;
     private $active;
@@ -26,6 +26,26 @@ class EmailModel extends BaseModel {
 
     function getEmail() {
         return $this->email;
+    }
+
+    function getEmailTypeid() {
+        return $this->emailTypeid;
+    }
+    
+     function getEmailType() {
+        return $this->emailType;
+    }
+
+    function getEmailTypeactive() {
+        return $this->emailTypeactive;
+    }
+
+    function getLogged() {
+        return $this->logged;
+    }
+
+    function getLastupdated() {
+        return $this->lastupdated;
     }
 
     function getActive() {
@@ -40,50 +60,28 @@ class EmailModel extends BaseModel {
         $this->email = $email;
     }
 
+    function setEmailTypeid($emailTypeid) {
+        $this->emailTypeid = $emailTypeid;
+    }
+
+    function setEmailType($emailType) {
+        $this->emailType = $emailType;
+    }
+
+    function setEmailTypeactive($emailTypeactive) {
+        $this->emailTypeactive = $emailTypeactive;
+    }
+    
+    function setLogged($logged) {
+        $this->logged = $logged;
+    }
+
+    function setLastupdated($lastupdated) {
+        $this->lastupdated = $lastupdated;
+    }
+
     function setActive($active) {
         $this->active = $active;
     }
-
-    function setEmailTypeId($x) {
-        $this->emailtypeid = $x;
-    }
-
-    function getEmailTypeId() {
-        return $this->emailtypeid;
-    }
     
-    
-    
-    
-    function setEmailType($x) {
-        $this->emailtype = $x;
-    }
-
-    function getEmailType() {
-        return $this->emailtype;
-    }
-    
-    function setEmailTypeActive($x) {
-        $this->emailtypeactive = $x;
-    }
-
-    function getEmailTypeActive() {
-        return $this->emailtypeactive;
-    }
-    
-    function setLogged($x) {
-        $this->logged = $x;
-    }
-
-    function getLogged() {
-        return $this->logged;
-    }
-    
-    function setLastUpdated($x) {
-        $this->lastupdated = $x;
-    }
-
-    function getLastUpdated() {
-        return $this->lastupdated;
-    }
 }

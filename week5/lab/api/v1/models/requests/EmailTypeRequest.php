@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of PhonetypeController
+ * Description of EmailTypeController
  *
  * @author User
  */
@@ -13,7 +13,7 @@ use API\models\interfaces\IService;
 use API\models\interfaces\IModel;
 
 
-class PhonetypeRequest implements IRequest {
+class EmailTypeRequest implements IRequest {
     //put your code here
     
     protected $service;
@@ -23,17 +23,17 @@ class PhonetypeRequest implements IRequest {
     }
     
     public function POST( IModel $model ) { 
-        $phoneModel = $this->service->getNewPhoneTypeModel();
-        $phoneModel->map($model->getRequestData());
-        if ( $this->service->create($phoneModel) ) {
+        $emailModel = $this->service->getNewEmailTypeModel();
+        $emailModel->map($model->getRequestData());
+        if ( $this->service->create($emailModel) ) {
             throw new ContentCreatedException('Created');           
         }
-        $errors = $this->service->validate($phoneModel);
+        $errors = $this->service->validate($emailModel);
         
         if ( count($errors) > 0 ) {
-            throw new ValidationException($errors, 'New Phone Type Not Created');
+            throw new ValidationException($errors, 'New Email Type Not Created');
         }
-        throw new ConflictRequestException('New Phone Type Not Created');
+        throw new ConflictRequestException('New Email Type Not Created');
     }
     
     public function GET( IModel $model ) {
@@ -58,18 +58,18 @@ class PhonetypeRequest implements IRequest {
     
     public function PUT( IModel $model ) {
         $id = intval($model->getId());
-        $phoneTypeModel = $this->service->getNewPhoneTypeModel();
-        $phoneTypeModel->map($model->getRequestData());
-        $phoneTypeModel->setPhonetypeid($id);
+        $emailTypeModel = $this->service->getNewEmailTypeModel();
+        $emailTypeModel->map($model->getRequestData());
+        $emailTypeModel->setEmailTypeid($id);
         
         if ( !$this->service->idExist($id) ) {
             throw new NoContentRequestException($id . ' ID does not exist');
         }
         
-        if ( $this->service->update($phoneTypeModel) ) {
+        if ( $this->service->update($emailTypeModel) ) {
             throw new ContentCreatedException('Created');           
         }
-        throw new ConflictRequestException('New Phone Type Not Updated for id ' . $id);
+        throw new ConflictRequestException('New Email Type Not Updated for id ' . $id);
     }
     
     public function DELETE( IModel $model ) {
@@ -77,6 +77,6 @@ class PhonetypeRequest implements IRequest {
         if ( $this->service->delete($id) ) {
             return null;          
         }
-        throw new ConflictRequestException($id . ' ID Phone Type Not Deleted');
+        throw new ConflictRequestException($id . ' ID Email Type Not Deleted');
     }
 }

@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Description of EmailController
+ * Description of EmailRequest
  *
  * @author User
  */
@@ -12,11 +11,8 @@ use API\models\interfaces\IRequest;
 use API\models\interfaces\IService;
 use API\models\interfaces\IModel;
 
-
 class EmailRequest implements IRequest {
-    //put your code here
-    
-    protected $service;
+     protected $service;
             
     public function __construct( IService $service) {
         $this->service = $service;
@@ -25,7 +21,6 @@ class EmailRequest implements IRequest {
     public function POST( IModel $model ) { 
         $emailModel = $this->service->getNewEmailModel();
         $emailModel->map($model->getRequestData());
-        
         if ( $this->service->create($emailModel) ) {
             throw new ContentCreatedException('Created');           
         }
@@ -70,6 +65,13 @@ class EmailRequest implements IRequest {
         if ( $this->service->update($emailModel) ) {
             throw new ContentCreatedException('Created');           
         }
+                
+        $errors = $this->service->validate($emailModel);
+        
+        if ( count($errors) > 0 ) {
+            throw new ValidationException($errors, 'Email Not Updated');
+        }        
+        
         throw new ConflictRequestException('New Email Not Updated for id ' . $id);
     }
     

@@ -1,38 +1,38 @@
 <?php
 
 /**
- * Description of EmailTypeModel
+ * Description of PhotoTypeModel
  *
  * @author User
  */
 
-namespace App\models\services;
+namespace API\models\services;
 
 
 class EmailTypeModel extends BaseModel {
     
-    private $emailtypeid;
-    private $emailtype;
+    private $emailTypeid;
+    private $emailType;
     private $active;
     
-    function getEmailtypeid() {
-        return $this->emailtypeid;
+    function getEmailTypeid() {
+        return $this->emailTypeid;
     }
 
-    function getEmailtype() {
-        return $this->emailtype;
+    function getEmailType() {
+        return $this->emailType;
     }
 
     function getActive() {
         return $this->active;
     }
 
-    function setEmailtypeid($emailtypeid) {
-        $this->emailtypeid = $emailtypeid;
+    function setEmailTypeid($emailTypeid) {
+        $this->emailTypeid = $emailTypeid;
     }
 
-    function setEmailtype($emailtype) {
-        $this->emailtype = $emailtype;
+    function setEmailType($emailType) {
+        $this->emailType = $emailType;
     }
 
     function setActive($active) {
