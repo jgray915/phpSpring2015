@@ -1,8 +1,11 @@
+<h2>Login</h2>
+
+<form action="#" method="post">
+    <label>Name:</label> <br />
+    <input type="text" name="username"/> <br />
+    <label>Password:</label> <br />
+    <input type="password" name="password"/> <br />
+    <input type="submit" text="Login" />
+</form>
+
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-

@@ -1,25 +1,24 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Apr 4, 2015, 6:15:35 PM
-    Author     : Jacob Gray
-*/
-
+/**
+ * Main style sheet.
+ *
+ * @author Jacob Gray
+ */
 *
 {
     margin:0;
     padding:0;
 }
 
-/*fixes jqplot legend swatch*/
-td div
+body
 {
-    border:1px solid black;
-    width:10px;
-    height:10px;
+    font-family:Times New Roman;
+    font-size:16px;
+    background-color:#CCC;
+}
+
+h2
+{
+    margin-bottom: 1em;
 }
 
 #wrapper
@@ -29,82 +28,22 @@ td div
     background-color:#FFF;
 }
 
-body
-{
-    margin:0;
-    padding:0;
-    font-family:Times New Roman;
-    font-size:16px;
-    background-color:#777;
-}
-
-/*
-h1
-{
-        font-size:32px;
-        text-align:center;
-}
-
-h2
-{
-        font-size:24px;
-}
-
-
-
 #header
 {
-        background-color: #353;
-        color: #CEC;
-        height:40px;
-}
-
-#transactionTable
-{
-        border-collapse: collapse;
-}
-
-#transactionTable th, #transactionTable td
-{
-        border-left: 1px solid #466747;
-}
-
-#transactionTable th
-{
-        background-color: #353;
-        color: #CEC;
-}
-
-#transactionTable tr:nth-child(even) 
-{
-        background-color: #CEC;
-        padding:1px;
-}
-#transactionTable tr:nth-child(odd) 
-{
-        background: #BDB;
-}
-
-#footer table
-{
-        width:100%;
-}
-
-#footer tr, #footer td
-{
-        background-color: #9C9;
-        border: none;
+    background-color:#DFD;
 }
 
 #main
 {
-        background-color:#FFF;
+    padding: 1em;
 }
 
-ul
+#footer
 {
-        list-style:none;
+    background-color:#DFD;
 }
 
-
-*/
+#footer p
+{
+    text-align: center;
+}

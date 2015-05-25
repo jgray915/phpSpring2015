@@ -13,3 +13,6 @@
 [5540078a84be0]	[exception]	[04-29-2015 12:19am]	Invalid credentials
 [55400ce778084]	[exception]	[04-29-2015 12:42am]	New Email Type Not Created
 [55400f32794d4]	[exception]	[04-29-2015 12:52am]	Invalid credentials
+[5562894b19d1c]	[exception]	[05-25-2015 4:30am]	New Email Type Not Created
+[556289d75a7d2]	[exception]	[05-25-2015 4:32am]	New Email Type Not Created
+[55628ad6e0dae]	[exception]	[05-25-2015 4:37am]	New Email Type Not Created

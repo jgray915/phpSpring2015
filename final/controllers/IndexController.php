@@ -1,60 +1,63 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * The controller invokes models to perform operations and sends data back to a
- * view based on $_GET["view"]
+ * The IndexController includes a view based on $_GET["view"]
  * 
  * @author Jacob Gray
  */
-class Controller
+class IndexController
 {
     public $db;
 
+    /**
+     * ??
+     *
+     * @param ??
+     *
+     * @return ??
+     */
     function __construct()
     {
-        include_once("./models/Database.php");
-        $this->db = new CheckingAccount();
+
     }
 
+    /**
+     * ??
+     *
+     * @param ??
+     *
+     * @return ??
+     */
     function invoke()
     {
         if(!isset($_GET["view"]))
         {
-            include_once("./views/Home.php");
+            include_once("./views/login.php");
         }
         else
         {
             switch($_GET["view"])
             {
-                case "MonthlyTransactions":
-                    $monthInt = date('m');
-                    $monthTxt = date('F');
-                    $lastMonthTxt = date("F",strtotime("-1 month"));
-                    echo "<h2>Transaction Report for the Month of ".$lastMonthTxt."</h2>";
-                    $data = $this->db->getCheckingTransactionsByMonth($monthInt-1);
-                    include_once("./view/TransactionReport.php");
+                case "addcategory":
+                    include_once("./view/addcategory.php");
                     break;
-                case "YearlyTransactions";
-                    $year = date('Y');
-                    $data = $this->db->getCheckingTransactionsByYear($year);
-                    echo "<h2>Transaction Report for ".$year."</h2>";
-                    include_once("./views/TransactionReport.php");
+                case "budget";
+                    include_once("./views/budget.php");
                     break;
-                case "Documentation";
-                    $files = scandir("./docs");
-                    include_once("./views/Documentation.php");
+                case "import";
+                    include_once("./views/import.php");
                     break;
-                case "Import";
-                    include_once("./views/Import.php");
+                case "login";
+                    include_once("./views/login.php");
+                    break;
+                case "monthly";
+                    include_once("./views/monthly.php");
+                    break;
+                case "signup";
+                    include_once("./views/signup.php");
                     break;
                 default:
-                    include_once("./views/Home.php");
+                    include_once("./views/login.php");
                     break;
             }
         }
