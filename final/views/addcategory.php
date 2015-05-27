@@ -1,2 +1,4 @@
-<h2>Add Categories</h2>
 <?php
+?>
+
+<h2>Add Categories</h2>

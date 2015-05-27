@@ -16,4 +16,4 @@ and display the information with different types of charts.
 * Transaction import page   (1 week)
 * Add Category page         (1 week)
 * Budget input page         (1 week)
-* Monthly Summary pages     (1 week)
+* Monthly Summary page     (1 week)

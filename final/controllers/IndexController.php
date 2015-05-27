@@ -1,14 +1,12 @@
 <?php
 
 /**
- * The IndexController includes a view based on $_GET["view"]
+ * The IndexController, included on index, includes a view based on $_GET["view"]
  * 
  * @author Jacob Gray
  */
 class IndexController
 {
-    public $db;
-
     /**
      * ??
      *
@@ -30,6 +28,8 @@ class IndexController
      */
     function invoke()
     {
+        
+        
         if(!isset($_GET["view"]))
         {
             include_once("./views/login.php");
@@ -39,7 +39,7 @@ class IndexController
             switch($_GET["view"])
             {
                 case "addcategory":
-                    include_once("./view/addcategory.php");
+                    include_once("./views/addcategory.php");
                     break;
                 case "budget";
                     include_once("./views/budget.php");
@@ -54,6 +54,7 @@ class IndexController
                     include_once("./views/monthly.php");
                     break;
                 case "signup";
+                    include_once("./controllers/util.php");
                     include_once("./views/signup.php");
                     break;
                 default:

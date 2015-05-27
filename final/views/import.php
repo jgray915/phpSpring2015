@@ -1,33 +1,3 @@
-<form action="?view=Import" method="post">
-    <label>Paste in JSON:</label>
-    <textarea id ="jsonInput" name="foobar"/></textarea>
-    <input type="submit" value="Submit">
-</form>
-
-<div id="tablediv"></div>
-<script src="./script/jqplot/jquery.js"></script>
-<script>
-    
-    function foo(){
-        var input = JSON.parse($("#jsonInput").val());
-        var html = "<table border='1'>";
-        var transactions = input.transactionsresponse;
-        for(var i = 0; i < transactions.length; i++)
-        {
-            html += "<tr>";
-            transaction = transactions[i];
-            for(var key in transaction)
-            {
-                html += "<td>"+key+" : "+transaction[key]+"</td>";
-            }
-            html += "</tr>";
-        }
-        html += "</table>";
-        $("#tablediv").html(html);
-    }
-
-</script>
-
 <?php
 
 /* 
@@ -59,3 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $creditTransaction = $trans['creditTransaction'];
     }
 }
+
+?>
+
+<h2>Import Transaction</h2>
+
+<form action="?view=Import" method="post">
+    <label>Paste in JSON:</label><br />
+    <input type="text" id ="jsonInput" name="foobar"/><br />
+    <input type="submit" value="Submit">
+</form>

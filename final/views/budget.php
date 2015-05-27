@@ -1,2 +1,4 @@
-<h2>Budgets</h2>
 <?php
+?>
+
+<h2>Budgets</h2>

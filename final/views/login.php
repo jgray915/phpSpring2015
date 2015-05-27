@@ -1,3 +1,6 @@
+<?php
+?>
+
 <h2>Login</h2>
 
 <form action="#" method="post">
@@ -7,5 +10,3 @@
     <input type="password" name="password"/> <br />
     <input type="submit" text="Login" />
 </form>
-
-<?php

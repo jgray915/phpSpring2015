@@ -1,3 +1,25 @@
+<?php
+
+    if(isPostRequest())
+    {
+        include_once("./models/signupDAO.php");
+        include_once("./models/DB.php");
+        $dbConfig = "mysql:host=localhost;port=3306;dbname=PersonalFinanceManager";
+        $db = new DB($dbConfig);
+        $info = filter_input_array(INPUT_POST);
+        $signupDao = new SignupDAO($db->getDB());
+        if ($info["password"] === $info["password2"] && $signupDao->create($info["username"], $info["password"])) 
+        {
+            $submitMsg = '<br /> <br /><p>Signup complete, <a href="./?view=login">Login here</a>.</p>';
+        } 
+        else 
+        {
+            $submitMsg = '<br /> <br /><p>Signup Failed, <a href="./?view=signup">Try Again</a></p>';
+        }
+    }
+
+?>
+
 <h2>Signup</h2>
 
 <form action="#" method="post">
@@ -7,7 +29,8 @@
     <input type="password" name="password"/> <br />
     <label>Re-enter Password:</label> <br />
     <input type="password" name="password2"/> <br />
-    <input type="submit" text="Login" />
+    <input type="submit" value="Login" /> 
 </form>
 
-<?php
+<?php if(isset($submitMsg)) echo $submitMsg; ?>
+
