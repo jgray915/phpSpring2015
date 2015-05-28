@@ -28,8 +28,18 @@ class IndexController
      */
     function invoke()
     {
+        include_once("./models/signupDAO.php");
+        include_once("./models/DB.php");
+        include_once("./controllers/util.php");
+        include_once("./models/DB.php");
+        $util = new Util();
         
-        
+        $dbConfig = array(
+            "DB_DNS"=>'mysql:host=localhost;port=3306;dbname=PersonalFinanceManager',
+            "DB_USER"=>'root',
+            "DB_PASSWORD"=>''
+        );
+                
         if(!isset($_GET["view"]))
         {
             include_once("./views/login.php");
@@ -54,7 +64,6 @@ class IndexController
                     include_once("./views/monthly.php");
                     break;
                 case "signup";
-                    include_once("./controllers/util.php");
                     include_once("./views/signup.php");
                     break;
                 default:

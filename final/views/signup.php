@@ -1,10 +1,8 @@
 <?php
 
-    if(isPostRequest())
+    if($util->isPostRequest())
     {
-        include_once("./models/signupDAO.php");
-        include_once("./models/DB.php");
-        $dbConfig = "mysql:host=localhost;port=3306;dbname=PersonalFinanceManager";
+
         $db = new DB($dbConfig);
         $info = filter_input_array(INPUT_POST);
         $signupDao = new SignupDAO($db->getDB());
@@ -29,7 +27,7 @@
     <input type="password" name="password"/> <br />
     <label>Re-enter Password:</label> <br />
     <input type="password" name="password2"/> <br />
-    <input type="submit" value="Login" /> 
+    <input type="submit" value="Signup" /> 
 </form>
 
 <?php if(isset($submitMsg)) echo $submitMsg; ?>

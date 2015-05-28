@@ -5,7 +5,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+class Util{
+    
     function isPostRequest() {
         return ( filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST' );
     }
+    
+}
