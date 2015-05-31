@@ -1,19 +1,3 @@
-<?php
-   if ( $util->isPostRequest() ) {
-       $db = new DB($dbConfig); 
-       $signupDao = new SignupDAO($db->getDB());            
-
-       $info = filter_input_array(INPUT_POST);
-
-       if ( $signupDao->login($info["username"], $info["password"]) ) {
-           echo '<h2>Login Sucess</h2>';
-
-       } else {
-           echo '<h2>Login Failed</h2>';
-       }
-   }
-?>
-
 <h2>Login</h2>
 
 <form action="#" method="post">
@@ -23,3 +7,24 @@
     <input type="password" name="password"/> <br />
     <input type="submit" value="Login" />
 </form>
+
+<?php
+
+   if ( $this->util->isPostRequest() ) {
+        $userDao = new UserDAO($this->db->getDB());   
+        $info = filter_input_array(INPUT_POST);
+       
+        if(     is_string($info["username"]) && !empty($info["username"]) &&
+                is_string($info["password"]) && !empty($info["password"])){
+            if ( $userDao->login($info["username"], $info["password"]) ) {
+                $this->util->redirect('?view=monthly');
+            } else {
+                echo '<p class="errorText">Name/password combination failed.</p>';
+            }
+        }
+        else{
+            echo '<p class="errorText">Please fill in all fields.</p>';
+        }
+   }
+   
+?>

@@ -59,3 +59,15 @@ h2
     display: inline;
     margin-right: 50px;
 }
+
+.errorText{
+    color: red;
+}
+
+.successText{
+    color: green;
+}
+
+hr{
+    margin: 1em 0;
+}

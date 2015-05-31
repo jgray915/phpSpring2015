@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2015 at 10:21 PM
+-- Generation Time: May 31, 2015 at 10:28 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `checkingaccountimport` (
   `importDate` datetime NOT NULL,
   `class` varchar(32) NOT NULL,
   `category` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `checkingaccountimport`
@@ -91,7 +91,25 @@ INSERT INTO `checkingaccountimport` (`storeId`, `transactionDate`, `amount`, `fe
 ('x x x x x x x x x x', '2015-04-01', '163.13', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Apartment Complex', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 33, '2015-05-31 16:14:10', 'Expenses', 'Rent'),
 ('x x x x x x x x x x', '2015-04-01', '339.30', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'McDonald''s', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 34, '2015-05-31 16:14:10', 'Spending', 'Restaurants'),
 ('x x x x x x x x x x', '2015-04-01', '149.80', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Savings Account', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 35, '2015-05-31 16:14:10', 'Savings/Investments', 'Savings'),
-('x x x x x x x x x x', '2015-04-01', '14.95', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'NEIT', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 36, '2015-05-31 16:14:10', 'Savings/Investments', 'Tuition');
+('x x x x x x x x x x', '2015-04-01', '14.95', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'NEIT', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 36, '2015-05-31 16:14:10', 'Savings/Investments', 'Tuition'),
+('x x x x x x x x x x', '2015-01-01', '16.30', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Fidelity', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 37, '2015-05-31 16:22:13', 'Savings/Investments', '401k'),
+('x x x x x x x x x x', '2015-01-01', '325.42', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Electric Department', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 38, '2015-05-31 16:22:13', 'Expenses', 'Electric Bill'),
+('x x x x x x x x x x', '2015-01-01', '46.34', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Movie Theater', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 39, '2015-05-31 16:22:13', 'Spending', 'Entertainment'),
+('x x x x x x x x x x', '2015-01-01', '252.74', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Amazon', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 40, '2015-05-31 16:22:13', 'Spending', 'Online Shopping'),
+('x x x x x x x x x x', '2015-01-01', '516.24', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Phone Company', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 41, '2015-05-31 16:22:13', 'Expenses', 'Phone Bill'),
+('x x x x x x x x x x', '2015-01-01', '32.58', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Apartment Complex', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 42, '2015-05-31 16:22:13', 'Expenses', 'Rent'),
+('x x x x x x x x x x', '2015-01-01', '489.13', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'McDonald''s', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 43, '2015-05-31 16:22:13', 'Spending', 'Restaurants'),
+('x x x x x x x x x x', '2015-01-01', '224.57', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Savings Account', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 44, '2015-05-31 16:22:13', 'Savings/Investments', 'Savings'),
+('x x x x x x x x x x', '2015-01-01', '18.87', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'NEIT', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 45, '2015-05-31 16:22:13', 'Savings/Investments', 'Tuition'),
+('x x x x x x x x x x', '2015-05-01', '150.84', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Fidelity', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 46, '2015-05-31 16:26:24', 'Savings/Investments', '401k'),
+('x x x x x x x x x x', '2015-05-01', '806.42', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Electric Department', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 47, '2015-05-31 16:26:24', 'Expenses', 'Electric Bill'),
+('x x x x x x x x x x', '2015-05-01', '230.99', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Movie Theater', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 48, '2015-05-31 16:26:24', 'Spending', 'Entertainment'),
+('x x x x x x x x x x', '2015-05-01', '778.47', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Amazon', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 49, '2015-05-31 16:26:24', 'Spending', 'Online Shopping'),
+('x x x x x x x x x x', '2015-05-01', '51.86', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Phone Company', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 50, '2015-05-31 16:26:24', 'Expenses', 'Phone Bill'),
+('x x x x x x x x x x', '2015-05-01', '385.59', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Apartment Complex', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 51, '2015-05-31 16:26:24', 'Expenses', 'Rent'),
+('x x x x x x x x x x', '2015-05-01', '137.37', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'McDonald''s', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 52, '2015-05-31 16:26:24', 'Spending', 'Restaurants'),
+('x x x x x x x x x x', '2015-05-01', '67.55', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'Savings Account', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 53, '2015-05-31 16:26:24', 'Savings/Investments', 'Savings'),
+('x x x x x x x x x x', '2015-05-01', '361.40', '0.00', '0.00', '0.00', '0.00', '0.00', 123, 'WITHDRAWAL', 0, 'NEIT', 'x x x x x x x x x x', 'x x x x x x x x ', 'x x x x x x x x x x', 'x x x x x x x x x x', 'x x x x x x x x x x', 0, 54, '2015-05-31 16:26:24', 'Savings/Investments', 'Tuition');
 
 -- --------------------------------------------------------
 
@@ -176,7 +194,7 @@ ALTER TABLE `withdrawalcategories`
 -- AUTO_INCREMENT for table `checkingaccountimport`
 --
 ALTER TABLE `checkingaccountimport`
-MODIFY `importId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
+MODIFY `importId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -185,3 +203,4 @@ MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

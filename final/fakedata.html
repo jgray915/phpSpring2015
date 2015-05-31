@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            var COUNT = 1;
+            var STARTMONTH = 5;
+            var STARTYEAR = 2015;
+            var descs = [
+                "Fidelity",
+                "Electric Department",
+                "Movie Theater",
+                "Amazon",
+                "Phone Company",
+                "Apartment Complex",
+                "McDonald's",
+                "Savings Account",
+                "NEIT",
+            ]
+            
+            var response = {"transactionsresponse": []};
+            var balance = 0;
+            
+            for(var i = 0; i < COUNT; i++){
+                for(var j = 0; j < descs.length; j++){
+                    var randAmnt = Math.round(Math.floor((Math.random() * 1000) + 11) * Math.random() * 100)/100;
+                    var randType = Math.random() > .3 ? "DEPOSIT" : "WITHDRAWAL";
+                    //randType === "WITHDRAWAL" ? balance -= randAmnt : balance += randAmnt;
+                    balance = Math.round(balance*100)/100;
+                    var trans = {
+                        storeId:  "x x x x x x x x x x",
+                        transactionDate:  STARTMONTH+"/1/"+STARTYEAR,
+                        amount:  randAmnt,
+                        fee:  0,
+                        amountToPrincipal:  0,
+                        amountToEscrow:  0,
+                        amountToInterest:  0,
+                        checkNumber:  123,
+                        transactionType:  "WITHDRAWAL",
+                        pending:  null,
+                        generatedDescription:  descs[j],
+                        transactionId:  "x x x x x x x x x x",
+                        intradayOrderId:  "x x x x x x x x x x",
+                        exportTNUM:  "x x x x x x x x x x",
+                        depositSlipIdentifier:  "x x x x x x x x x x",
+                        checkImageIdentifier:  "x x x x x x x x x x",
+                        creditTransaction:  0,
+                        ledgerBalance:  balance
+                    };
+
+                    response.transactionsresponse.push(trans);
+                }
+                STARTMONTH++;
+                if(STARTMONTH == 13){
+                    STARTMONTH = 1;
+                    STARTYEAR++;
+                }
+            }
+            
+            console.log(response);
+            document.write(JSON.stringify(response));
+        </script>
+    </body>
+</html>

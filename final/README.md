@@ -12,8 +12,8 @@ Finally, monthly summary pages will break spending down into these categories,
 and display the information with different types of charts. 
 
 # TASKS (5 weeks)
-* Sign-up/Login pages       (1 week)
-* Transaction import page   (1 week)
-* Add Category page         (1 week)
+- Sign-up/Login pages       (1 week)
+- Transaction import page   (1 week)
+- Add Category page         (1 week)
 * Budget input page         (1 week)
-* Monthly Summary page     (1 week)
+- Monthly Summary page      (1 week)

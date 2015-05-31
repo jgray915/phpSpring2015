@@ -1,23 +1,3 @@
-<?php
-
-    if($util->isPostRequest())
-    {
-
-        $db = new DB($dbConfig);
-        $info = filter_input_array(INPUT_POST);
-        $signupDao = new SignupDAO($db->getDB());
-        if ($info["password"] === $info["password2"] && $signupDao->create($info["username"], $info["password"])) 
-        {
-            $submitMsg = '<br /> <br /><p>Signup complete, <a href="./?view=login">Login here</a>.</p>';
-        } 
-        else 
-        {
-            $submitMsg = '<br /> <br /><p>Signup Failed, <a href="./?view=signup">Try Again</a></p>';
-        }
-    }
-
-?>
-
 <h2>Signup</h2>
 
 <form action="#" method="post">
@@ -30,5 +10,30 @@
     <input type="submit" value="Signup" /> 
 </form>
 
-<?php if(isset($submitMsg)) echo $submitMsg; ?>
+<?php
 
+    if($this->util->isPostRequest())
+    {
+        $info = filter_input_array(INPUT_POST);
+        $userDAO = new UserDAO($this->db->getDB());
+        
+        if(     is_string($info["username"]) && !empty($info["username"]) &&
+                is_string($info["password"]) && !empty($info["password"]) &&
+                is_string($info["password2"]) && !empty($info["password2"])){
+            if ($info["password"] != $info["password2"]){
+                echo '<br /> <br /><p class="errorText">Passwords do not match.</p>';
+            } 
+            else if(!$userDAO->create($info["username"], $info["password"])){
+                echo '<br /> <br /><p class="errorText">Username already exists.</p>';
+            } 
+            else 
+            {
+                echo '<br /> <br /><p class="successText">Signup complete, <a href="./?view=login">Login here</a>.</p>';
+            }
+        }
+        else{
+            echo '<br /> <br /><p class="errorText">Please fill all fields.</p>';
+        }
+    }
+    
+?>
