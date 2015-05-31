@@ -13,8 +13,11 @@
     </tr>
     
     <?php
+        /*
+        * Create budget display table
+        */
         $categoryDao = new CategoryDAO($this->db->getDB());
-        $catTots = $categoryDao->getCategoryTotalsByMonth(date('m'));
+        $catTots = $categoryDao->getCategoryTotalsByMonth(date('m')+1);
         
         if($catTots){
             foreach($catTots as $key => $value){
@@ -44,24 +47,32 @@
 
 $(function () {
     <?php 
-        echo "var stuff = ".$categoryDao->getCategoryPctByMonth(date('m')).";\n\n";
+        /*
+        * Pass category percentages to script
+        */
+        echo "var catPct = ".$categoryDao->getCategoryPctByMonth(date('m')+1    ).";\n\n";
     ?>
-            
+    
+    /*
+    * Create lists for the two charts
+    */
     var classList = [];
     var catList = [];
-    for (var key in stuff) {
-        if (stuff.hasOwnProperty(key)) {
-            if((key === "Expenses" || key === "Savings/Investments" || key === "Spending") && stuff[key] != 0){
-                classList.push([key, stuff[key]]);
+    for (var key in catPct) {
+        if (catPct.hasOwnProperty(key)) {
+            if((key === "Expenses" || key === "Savings/Investments" || key === "Spending") && catPct[key] != 0){
+                classList.push([key, catPct[key]]);
                 
             }
-            else if(stuff[key] != 0){
-                catList.push([key, stuff[key]]);
+            else if(catPct[key] != 0){
+                catList.push([key, catPct[key]]);
             }
         }
     }
     
-    console.log(classList);
+    /*
+    * Create the two charts
+    */
     $('#container').highcharts({
         chart: {
             plotBackgroundColor: null,

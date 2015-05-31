@@ -35,7 +35,7 @@ class CategoryDAO {
     }
     
     /**
-     * Attempts to insert transaction into database.
+     * Returns transactions without categories or false.
      *    
      * @return boolean
      */ 
@@ -49,7 +49,6 @@ class CategoryDAO {
         
          return false;
     }
-    
     
     /**
      * Returns spending totals by category per month
@@ -202,7 +201,7 @@ class CategoryDAO {
     }
     
     /**
-     * Remove category from categories and from transactions that belong to it
+     * Remove category from categories table and from transactions that are tagged with it
      *    
      * @param {String} [$category] - category name
      * 

@@ -7,6 +7,9 @@
     </tr>
 
 <?php
+    /*
+     * Create budget table
+     */
     $budgetDao = new BudgetDAO($this->db->getDB());
     $cats = $budgetDao->getCategories();
     
@@ -22,6 +25,9 @@
 <button onclick="updateBudgets();">Update Budgets</button>
 
 <?php
+    /*
+     * Catch posted budgets to update them
+     */
     if ( $this->util->isPostRequest() ) {
         foreach($_POST['updated'] as $budgets){
             foreach($budgets as $budget){
@@ -33,9 +39,15 @@
 
 <script>
     <?php
+    /*
+     * Pass categories to script
+     */
         echo "var cats = ".json_encode($cats).";\n";
     ?>
  
+     /*
+     * Post budgets back
+     */
      function updateBudgets(){
         var updated = {budgets: []};
         for(var i = 0; i < cats.length; i++){

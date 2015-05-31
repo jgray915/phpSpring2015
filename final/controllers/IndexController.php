@@ -15,12 +15,14 @@ class IndexController
      */
     function __construct()
     {
+        
+        include_once("./controllers/Util.php");
+        
         include_once("./models/BudgetDAO.php");
-        include_once("./models/UserDAO.php");
         include_once("./models/CategoryDAO.php");
         include_once("./models/DB.php");
-        include_once("./controllers/Util.php");
-        include_once("./models/DB.php");
+        include_once("./models/ImportDAO.php");
+        include_once("./models/UserDAO.php");
         
         $dbConfig = array(
             "DB_DNS"=>'mysql:host=localhost;port=3306;dbname=PersonalFinanceManager',

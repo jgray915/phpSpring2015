@@ -9,6 +9,9 @@
         <th>Category</th>
     </tr>
     <?php   
+        /*
+         * Create category table
+         */
         $categoryDao = new CategoryDAO($this->db->getDB());
         $trans = $categoryDao->getTransactionsWithoutCategories();
         $transIds = array();
@@ -99,6 +102,9 @@
 <button onclick="updateTrans();">Update Transactions</button>
 
 <?php
+    /*
+     * On post, update transactions with categories
+     */
     if ( $this->util->isPostRequest() ) {
         foreach($_POST['updated'] as $trans){
             foreach($trans as $tran){
@@ -110,6 +116,9 @@
 
 <script>
     <?php
+        /*
+         * Pass transactions and categories to script
+         */
         $js_ids = json_encode($transIds);
         $js_expense = json_encode($expenseCats);
         $js_invest = json_encode($investCats);
@@ -119,8 +128,10 @@
         echo "var investCats = ".$js_invest.";";
         echo "var spendCats = ".$js_spend.";";
     ?>
-    var rows = $(".category");
-    
+  
+    /*
+     * Change category drop down based on class dropdown
+     */
     function updateOptions(inputId){
         switch($("#"+inputId+" .class").val()){
             case '-':
@@ -155,6 +166,9 @@
         }
     }
     
+    /*
+     * Post back transactions with new categoreis
+     */
     function updateTrans(){
         var updated = {trans: []};
         for(var i = 0; i < transIds.length; i++){

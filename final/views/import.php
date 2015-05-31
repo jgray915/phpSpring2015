@@ -7,9 +7,10 @@
 </form>
 
 <?php
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        include_once("./models/ImportDAO.php");
+    /*
+     * Insert transactions from json into database
+     */
+    if ( $this->util->isPostRequest() ) {
         $importDAO = new ImportDAO($this->db->getDB());
         $input = json_decode($_POST["jsonString"], true);
 

@@ -9,7 +9,9 @@
 </form>
 
 <?php
-
+    /*
+    * Authenticate user
+    */
    if ( $this->util->isPostRequest() ) {
         $userDao = new UserDAO($this->db->getDB());   
         $info = filter_input_array(INPUT_POST);

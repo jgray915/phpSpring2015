@@ -25,6 +25,9 @@
     </tr>
 
 <?php
+    /*
+    * Create category table
+    */
     $categoryDao = new CategoryDAO($this->db->getDB());
     $cats = $categoryDao->getCategories();
     if($cats){
@@ -39,7 +42,9 @@
 <button onclick="deleteCategory();">Delete Category</button>
 
 <?php
-
+    /*
+    * On post, either add or remove category
+    */
    if ( $this->util->isPostRequest() ){
         $info = filter_input_array(INPUT_POST);
        
@@ -62,9 +67,15 @@
 
 <script>
     <?php
+        /*
+        * Pass categories to script
+        */
         echo "var cats = ".json_encode($cats).";\n";
     ?>
  
+    /*
+    * Post back categories to delete
+    */
      function deleteCategory(){
         var updated = {categories: []};
         for(var i = 0; i < cats.length; i++){

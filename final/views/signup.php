@@ -11,7 +11,9 @@
 </form>
 
 <?php
-
+    /*
+     * Validate new name and password and create the user
+     */
     if($this->util->isPostRequest())
     {
         $info = filter_input_array(INPUT_POST);

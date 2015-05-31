@@ -35,23 +35,7 @@ class BudgetDAO {
     }
     
     /**
-     * Attempts to insert transaction into database.
-     *    
-     * @return boolean
-     */ 
-    public function getTransactionsWithoutCategories(){
-        $db = $this->getDB();
-        $stmt = $db->prepare("SELECT importId, transactionDate, generatedDescription, amount, class, category from CheckingAccountImport WHERE transactionType = 'WITHDRAWAL' and (category = '' or class = '')");
-
-        if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        
-         return false;
-    }
-    
-    /**
-     * Returns all categories
+     * Returns all categories or false
      *    
      * @return boolean
      */ 
@@ -67,7 +51,7 @@ class BudgetDAO {
     }
       
     /**
-     * Updates transactions with new class and category by id.
+     * Updates category with new budget.
      *    
      * @return boolean
      */ 
