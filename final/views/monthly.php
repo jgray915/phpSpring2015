@@ -17,7 +17,7 @@
         * Create budget display table
         */
         $categoryDao = new CategoryDAO($this->db->getDB());
-        $catTots = $categoryDao->getCategoryTotalsByMonth(date('m')+1);
+        $catTots = $categoryDao->getCategoryTotalsByMonth(date('m'));
         
         if($catTots){
             foreach($catTots as $key => $value){
@@ -50,7 +50,7 @@ $(function () {
         /*
         * Pass category percentages to script
         */
-        echo "var catPct = ".$categoryDao->getCategoryPctByMonth(date('m')+1    ).";\n\n";
+        echo "var catPct = ".$categoryDao->getCategoryPctByMonth(date('m')).";\n\n";
     ?>
     
     /*
