@@ -16,3 +16,9 @@
 [5562894b19d1c]	[exception]	[05-25-2015 4:30am]	New Email Type Not Created
 [556289d75a7d2]	[exception]	[05-25-2015 4:32am]	New Email Type Not Created
 [55628ad6e0dae]	[exception]	[05-25-2015 4:37am]	New Email Type Not Created
+[556e56391de2b]	[exception]	[06-03-2015 3:19am]	New Email Not Created
+[556e563a6f031]	[exception]	[06-03-2015 3:19am]	New Email Not Created
+[556e563aceab7]	[exception]	[06-03-2015 3:19am]	New Email Not Created
+[556e563af05a7]	[exception]	[06-03-2015 3:19am]	New Email Not Created
+[556e563b2d424]	[exception]	[06-03-2015 3:19am]	New Email Not Created
+[556e563b5787c]	[exception]	[06-03-2015 3:19am]	New Email Not Created

@@ -9,17 +9,17 @@ var myApp = angular.module('myApp', [
 
 myApp.constant('config', {
     "endpoints": {
-       "emails" : 'http://localhost/phpSpring2015/week5/lab/proxyAPI.php?resource=emails',
-       "emailtypes" : 'http://localhost/phpSpring2015/week5/lab/proxyAPI.php?resource=emailtypes'
+       "phones" : 'http://localhost/phpSpring2015/week5/demo/api/v1/phones/',
+       "phonetypes" : 'http://localhost/phpSpring2015/week5/demo/api/v1/phonetypes/'
     },
     "models" : {
-        "emailtype" : {
-            "emailtype" : '',
+        "phonetype" : {
+            "phonetype" : '',
             "active" : ''
         },
-        "email" : {
-            "email" : '',
-            "emailtypeid" : '',
+        "phone" : {
+            "phone" : '',
+            "phonetypeid" : '',
             "active" : ''
         }   
     }
@@ -31,12 +31,12 @@ myApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
         when('/', {
-            templateUrl: 'partials/emailtypes.html',
-            controller: 'EmailTypesCtrl'
+            templateUrl: 'partials/phonetypes.html',
+            controller: 'PhoneTypesCtrl'
         }).
-        when('/emails', {
-            templateUrl: 'partials/emails.html',
-            controller: 'EmailsCtrl'
+        when('/phones', {
+            templateUrl: 'partials/phones.html',
+            controller: 'PhonesCtrl'
         }).
         otherwise({
           redirectTo: '/'

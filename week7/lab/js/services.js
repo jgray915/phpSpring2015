@@ -17,11 +17,11 @@ appServices.factory('emailTypesProvider', ['$http', 'config', function($http, co
             return $http.post(url, model);
         },
         "deleteEmailType" : function (emailtypeid) {
-            var _url = url + "&emailtypeid=" +  emailtypeid;
+            var _url = url + emailtypeid;
             return $http.delete(_url);
         },
         "updateEmailType" : function (emailtypeid, emailtype, active) {  
-            var _url = url + "&emailtypeid=" +  emailtypeid;
+            var _url = url + emailtypeid;
             model.emailtype = emailtype;
             model.active = active;
             return $http.put(_url, model);
@@ -46,11 +46,11 @@ appServices.factory('emailsProvider', ['$http', 'config', function($http, config
             return $http.post(url, model);
         },
         "deleteEmail" : function (emailid) {
-            var _url = url + "&emailid=" + emailid;
+            var _url = url + emailid;
             return $http.delete(_url);
         },
          "updateEmail" : function (emailid, emailtype, emailtypeid, active) {  
-            var _url = url + "&emailid=" +  emailid;
+            var _url = url + emailid;
             model.email = emailtype;
             model.emailtypeid = emailtypeid;
             model.active = active;
